@@ -53,6 +53,13 @@ exports.login = function login (permissions, s, f) {
       permissions.splice(index, 1)
       options.auth_type = 'rerequest'
     }
+
+    var index = permissions.indexOf('reauthenticate')
+    if (index > -1) {
+      permissions.splice(index, 1)
+      options.auth_type = 'reauthenticate'
+    }
+
     options.scope = permissions.join(',')
   }
 
